@@ -8,6 +8,10 @@ Subtle, configurable world outlines for mature crops and common growing problems
 
 [Download on Modrinth](https://modrinth.com/mod/crop-helper) · CurseForge coming soon · [Report an issue](https://github.com/notverycomfy/crop-helper/issues)
 
+![Minecraft 26.1.2 and 26.2](https://img.shields.io/badge/Minecraft-26.1.2%20%7C%2026.2-62B47A)
+![NeoForge and Fabric](https://img.shields.io/badge/Loaders-NeoForge%20%7C%20Fabric-E46A2C)
+![All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-9B59B6)
+
 </div>
 
 > Official JAR downloads are distributed through Modrinth and CurseForge. GitHub contains source code only.
@@ -29,9 +33,9 @@ The repository follows the same branch layout as Resonance:
 | Minecraft | Loader | Branch |
 | --- | --- | --- |
 | 26.1.2 | NeoForge | `main` |
-| 26.1.2 | Fabric | [`codex/fabric-26.1.2`](../../tree/codex/fabric-26.1.2) |
-| 26.2 | Fabric | [`codex/fabric-26.2`](../../tree/codex/fabric-26.2) |
-| 26.2 | NeoForge | [`codex/neoforge-26.2`](../../tree/codex/neoforge-26.2) |
+| 26.1.2 | Fabric | [`codex/fabric-26.1.2`](https://github.com/notverycomfy/crop-helper/tree/codex/fabric-26.1.2) |
+| 26.2 | Fabric | [`codex/fabric-26.2`](https://github.com/notverycomfy/crop-helper/tree/codex/fabric-26.2) |
+| 26.2 | NeoForge | [`codex/neoforge-26.2`](https://github.com/notverycomfy/crop-helper/tree/codex/neoforge-26.2) |
 
 Fabric builds require Fabric API. Mod Menu is optional and exposes the in-game color configuration screen.
 
