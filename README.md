@@ -1,25 +1,44 @@
+<div align="center">
 
-Installation information
-=======
+# Crop Helper
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+### See what your farm needs at a glance.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+Subtle, configurable world outlines for mature crops and common growing problems—shown only while holding a hoe.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+[Download on Modrinth](https://modrinth.com/mod/crop-helper) · CurseForge coming soon · [Report an issue](https://github.com/notverycomfy/crop-helper/issues)
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+</div>
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+> Official JAR downloads are distributed through Modrinth and CurseForge. GitHub contains source code only.
+
+## Highlights
+
+- Mature crops ready to harvest
+- Crops growing slowly on dry farmland
+- Crops with insufficient light
+- Bare farmland at risk of reverting to dirt
+- Saplings obstructed by nearby blocks
+
+No HUD. Client-side only. Outline colors are configurable in game.
+
+## Versions
+
+The repository follows the same branch layout as Resonance:
+
+| Minecraft | Loader | Branch |
+| --- | --- | --- |
+| 26.1.2 | NeoForge | `main` |
+| 26.1.2 | Fabric | [`codex/fabric-26.1.2`](../../tree/codex/fabric-26.1.2) |
+| 26.2 | Fabric | [`codex/fabric-26.2`](../../tree/codex/fabric-26.2) |
+| 26.2 | NeoForge | [`codex/neoforge-26.2`](../../tree/codex/neoforge-26.2) |
+
+Fabric builds require Fabric API. Mod Menu is optional and exposes the in-game color configuration screen.
+
+## Build
+
+Use `./gradlew build` from the branch matching the target loader and Minecraft version. Generated development JARs appear in `build/libs` and are not distributed through GitHub.
+
+## License
+
+Copyright © 2026. All Rights Reserved. See [`LICENSE`](LICENSE).
