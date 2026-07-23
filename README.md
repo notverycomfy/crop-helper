@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/crop-helper-logo.png" alt="Crop Helper diamond hoe logo" width="160">
+
 # Crop Helper
 
 ### See what your farm needs at a glance.
