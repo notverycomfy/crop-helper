@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "crop_helper",
+	"version": "${version}",
+	"name": "Crop Helper",
+	"description": "Subtle in-world crop and farmland diagnostics while holding a hoe.",
+	"authors": [
+		"Crop Helper contributors"
+	],
+	"license": "All Rights Reserved",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"dev.cropreadiness.fabric.CropReadinessFabric"
+		],
+		"client": [
+			"dev.cropreadiness.fabric.CropReadinessFabricClient"
+		],
+		"modmenu": [
+			"dev.cropreadiness.fabric.CropReadinessModMenu"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}
