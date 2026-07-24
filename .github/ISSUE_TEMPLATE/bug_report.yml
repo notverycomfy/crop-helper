@@ -1,0 +1,50 @@
+name: Bug report
+description: Report something in Crop Helper that is not working correctly.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Mod version
+      placeholder: Example: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Minecraft and loader version
+      placeholder: Example: Minecraft 26.1.2, NeoForge
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Enter a world...
+        2. Hold a hoe...
+        3. Observe the problem...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs, crash reports, or screenshots
+      description: Drag files here or link to a paste. Remove private information first.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I am using an official release from CurseForge or Modrinth.
+          required: true
+        - label: I searched for an existing report.
+          required: true
