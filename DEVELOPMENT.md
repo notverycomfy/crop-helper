@@ -2,6 +2,16 @@
 
 This repository stays independent from the other mods, but follows the same maintenance routine.
 
+## Project structure
+
+- `.github/`: build automation and repository templates
+- `assets/`: project artwork used by GitHub and publishing pages
+- `gradle/wrapper/`: pinned Gradle wrapper
+- `src/main/`: shipping Java code and resources
+- `src/test/`: automated tests when the project has testable standalone logic
+
+GitHub may visually combine single-child folders such as `gradle/wrapper` or `src/main`. That display does not change the actual directory structure.
+
 ## Branches
 
 - `main`: NeoForge for Minecraft 26.1.2
