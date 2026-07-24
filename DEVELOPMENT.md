@@ -39,6 +39,7 @@ Make a fix in the branch where it was found. Port the finished fix to the other 
 - Log recoverable failures with useful context. Do not silently ignore exceptions.
 - Avoid wildcard imports, debug printing, dead code, and unused template configuration.
 - Keep gameplay constants named when their meaning is not obvious.
+- Keep constructor and method calls readable at the call site. Replace ambiguous positional booleans with descriptive variables, constants, enums, or small context objects.
 
 ## Release routine
 
