@@ -1,4 +1,4 @@
-package dev.cropreadiness.neoforge;
+package dev.crophelper.neoforge;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -31,9 +31,9 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-@Mod(value = CropReadinessNeoForge.MOD_ID, dist = Dist.CLIENT)
-@EventBusSubscriber(modid = CropReadinessNeoForge.MOD_ID, value = Dist.CLIENT)
-public final class CropReadinessNeoForgeClient {
+@Mod(value = CropHelperNeoForge.MOD_ID, dist = Dist.CLIENT)
+@EventBusSubscriber(modid = CropHelperNeoForge.MOD_ID, value = Dist.CLIENT)
+public final class CropHelperNeoForgeClient {
     private static final int RADIUS = 8;
     private static final int VERTICAL_RADIUS = 4;
     private static final int RESCAN_INTERVAL = 8;
@@ -42,11 +42,11 @@ public final class CropReadinessNeoForgeClient {
     private static long lastScan = Long.MIN_VALUE;
     private static BlockPos lastCenter = BlockPos.ZERO;
 
-    public CropReadinessNeoForgeClient(ModContainer container) {
-        CropReadinessConfig.load();
+    public CropHelperNeoForgeClient(ModContainer container) {
+        CropHelperConfig.load();
         container.registerExtensionPoint(
                 IConfigScreenFactory.class,
-                (modContainer, parent) -> new CropReadinessConfigScreen(parent)
+                (modContainer, parent) -> new CropHelperConfigScreen(parent)
         );
     }
 
@@ -122,18 +122,18 @@ public final class CropReadinessNeoForgeClient {
         if (state.getBlock() instanceof FarmlandBlock) {
             return state.getValue(FarmlandBlock.MOISTURE) == 0
                     && !level.getBlockState(pos.above()).is(BlockTags.MAINTAINS_FARMLAND)
-                    ? CropReadinessConfig.color(3) : 0;
+                    ? CropHelperConfig.color(3) : 0;
         }
         if (state.getBlock() instanceof SaplingBlock) {
-            return hasTreeRoom(level, pos) ? 0 : CropReadinessConfig.color(4);
+            return hasTreeRoom(level, pos) ? 0 : CropHelperConfig.color(4);
         }
         if (!isCrop(state)) return 0;
 
-        if (isMature(state)) return CropReadinessConfig.color(0);
-        if (tooDarkToGrow(level, pos, state)) return CropReadinessConfig.color(2);
+        if (isMature(state)) return CropHelperConfig.color(0);
+        if (tooDarkToGrow(level, pos, state)) return CropHelperConfig.color(2);
         BlockState below = level.getBlockState(pos.below());
         if (below.getBlock() instanceof FarmlandBlock
-                && below.getValue(FarmlandBlock.MOISTURE) == 0) return CropReadinessConfig.color(1);
+                && below.getValue(FarmlandBlock.MOISTURE) == 0) return CropHelperConfig.color(1);
         return 0;
     }
 

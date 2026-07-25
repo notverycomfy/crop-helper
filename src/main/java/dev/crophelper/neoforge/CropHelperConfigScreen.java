@@ -1,4 +1,4 @@
-package dev.cropreadiness.neoforge;
+package dev.crophelper.neoforge;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -7,7 +7,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import java.io.IOException;
 
-final class CropReadinessConfigScreen extends Screen {
+final class CropHelperConfigScreen extends Screen {
     private static final String[] NAMES = {
             "Mature crop",
             "Crop on dry soil",
@@ -28,7 +28,7 @@ final class CropReadinessConfigScreen extends Screen {
     private String status = "";
     private int buttonY;
 
-    CropReadinessConfigScreen(Screen parent) {
+    CropHelperConfigScreen(Screen parent) {
         super(Component.literal("Crop Helper Colors"));
         this.parent = parent;
     }
@@ -40,7 +40,7 @@ final class CropReadinessConfigScreen extends Screen {
         for (int i = 0; i < fields.length; i++) {
             EditBox field = new EditBox(font, left + 235, 52 + i * 34, 90, 20, Component.literal(NAMES[i] + " color"));
             field.setMaxLength(7);
-            field.setValue(CropReadinessConfig.hex(CropReadinessConfig.color(i)));
+            field.setValue(CropHelperConfig.hex(CropHelperConfig.color(i)));
             fields[i] = addRenderableWidget(field);
         }
         addRenderableWidget(Button.builder(Component.literal("Save"), button -> save())
@@ -57,7 +57,7 @@ final class CropReadinessConfigScreen extends Screen {
     private void save() {
         int[] values = new int[fields.length];
         for (int i = 0; i < fields.length; i++) {
-            int parsed = CropReadinessConfig.parse(fields[i].getValue(), -1);
+            int parsed = CropHelperConfig.parse(fields[i].getValue(), -1);
             if (parsed < 0) {
                 status = "Use six-digit hex colors, for example #59D66F";
                 return;
@@ -65,17 +65,17 @@ final class CropReadinessConfigScreen extends Screen {
             values[i] = parsed;
         }
         try {
-            CropReadinessConfig.save(values);
+            CropHelperConfig.save(values);
             minecraft.setScreenAndShow(parent);
         } catch (IOException exception) {
-            CropReadinessNeoForge.LOGGER.error("Could not save Crop Helper configuration", exception);
+            CropHelperNeoForge.LOGGER.error("Could not save Crop Helper configuration", exception);
             status = "Could not save the configuration file";
         }
     }
 
     private void reset() {
         for (int i = 0; i < fields.length; i++) {
-            fields[i].setValue(CropReadinessConfig.hex(CropReadinessConfig.defaultColor(i)));
+            fields[i].setValue(CropHelperConfig.hex(CropHelperConfig.defaultColor(i)));
         }
         status = "Defaults restored; press Save to apply";
     }
@@ -93,7 +93,7 @@ final class CropReadinessConfigScreen extends Screen {
         int left = width / 2 - 170;
         for (int i = 0; i < fields.length; i++) {
             int y = 52 + i * 34;
-            int rgb = CropReadinessConfig.parse(fields[i].getValue(), CropReadinessConfig.defaultColor(i));
+            int rgb = CropHelperConfig.parse(fields[i].getValue(), CropHelperConfig.defaultColor(i));
             graphics.fill(left, y + 2, left + 16, y + 18, 0xFF000000 | rgb);
             graphics.text(font, NAMES[i], left + 24, y, 0xFFFFFFFF);
             graphics.text(font, DETAILS[i], left + 24, y + 11, 0xFFAAAAAA);
