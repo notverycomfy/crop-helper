@@ -80,7 +80,7 @@ public final class CropHelperNeoForgeClient {
                     mark.pos.getZ() - camera.z
             );
             event.getSubmitNodeCollector().submitShapeOutline(
-                    poseStack, shape, RenderTypes.linesTranslucent(), mark.color, 1.0F, false
+                    poseStack, shape, RenderTypes.lines(), mark.color, 1.0F, true
             );
             poseStack.popPose();
         }
