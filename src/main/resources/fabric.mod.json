@@ -11,13 +11,13 @@
 	"environment": "client",
 	"entrypoints": {
 		"main": [
-			"dev.cropreadiness.fabric.CropReadinessFabric"
+			"dev.crophelper.fabric.CropHelperFabric"
 		],
 		"client": [
-			"dev.cropreadiness.fabric.CropReadinessFabricClient"
+			"dev.crophelper.fabric.CropHelperFabricClient"
 		],
 		"modmenu": [
-			"dev.cropreadiness.fabric.CropReadinessModMenu"
+			"dev.crophelper.fabric.CropHelperModMenu"
 		]
 	},
 	"depends": {

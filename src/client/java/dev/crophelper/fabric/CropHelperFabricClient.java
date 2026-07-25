@@ -1,4 +1,4 @@
-package dev.cropreadiness.fabric;
+package dev.crophelper.fabric;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -8,9 +8,9 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
-public final class CropReadinessFabricClient implements ClientModInitializer {
+public final class CropHelperFabricClient implements ClientModInitializer {
     private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(
-            Identifier.fromNamespaceAndPath(CropReadinessFabric.MOD_ID, "controls")
+            Identifier.fromNamespaceAndPath(CropHelperFabric.MOD_ID, "controls")
     );
     private static final KeyMapping OPEN_CONFIG = KeyMappingHelper.registerKeyMapping(
             new KeyMapping("key.crop_helper.open_config", GLFW.GLFW_KEY_C, CATEGORY)
@@ -18,12 +18,12 @@ public final class CropReadinessFabricClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        CropReadinessConfig.load();
-        LevelRenderEvents.BEFORE_BLOCK_OUTLINE.register(CropReadinessRenderer::shouldRenderVanillaOutline);
-        LevelRenderEvents.AFTER_SOLID_FEATURES.register(CropReadinessRenderer::render);
+        CropHelperConfig.load();
+        LevelRenderEvents.BEFORE_BLOCK_OUTLINE.register(CropHelperRenderer::shouldRenderVanillaOutline);
+        LevelRenderEvents.AFTER_SOLID_FEATURES.register(CropHelperRenderer::render);
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (OPEN_CONFIG.consumeClick()) {
-                client.setScreenAndShow(new CropReadinessConfigScreen(null));
+                client.setScreenAndShow(new CropHelperConfigScreen(null));
             }
         });
     }
