@@ -1,4 +1,4 @@
-package dev.cropreadiness.fabric;
+package dev.crophelper.fabric;
 
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -9,13 +9,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
 
-final class CropReadinessConfig {
+final class CropHelperConfig {
     private static final Path FILE = FabricLoader.getInstance().getConfigDir().resolve("crop-helper.properties");
     private static final int[] DEFAULTS = {0x32FF6A, 0xFF8C1A, 0x4DA3FF, 0xFFE14A, 0xFF3B30};
     private static final String[] KEYS = {"mature", "needs_water", "blocked", "dry_farmland", "sapling_cramped"};
     private static final int[] COLORS = DEFAULTS.clone();
 
-    private CropReadinessConfig() {
+    private CropHelperConfig() {
     }
 
     static void load() {
@@ -24,7 +24,7 @@ final class CropReadinessConfig {
             try (Reader reader = Files.newBufferedReader(FILE)) {
                 properties.load(reader);
             } catch (IOException exception) {
-                CropReadinessFabric.LOGGER.warn("Could not read Crop Helper configuration; using defaults", exception);
+                CropHelperFabric.LOGGER.warn("Could not read Crop Helper configuration; using defaults", exception);
             }
         }
         for (int i = 0; i < KEYS.length; i++) {

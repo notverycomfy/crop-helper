@@ -1,4 +1,4 @@
-package dev.cropreadiness.fabric;
+package dev.crophelper.fabric;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
@@ -25,7 +25,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import java.util.ArrayList;
 import java.util.List;
 
-final class CropReadinessRenderer {
+final class CropHelperRenderer {
     private static final int RADIUS = 8;
     private static final int VERTICAL_RADIUS = 4;
     private static final int RESCAN_INTERVAL = 8;
@@ -34,7 +34,7 @@ final class CropReadinessRenderer {
     private static long lastScan = Long.MIN_VALUE;
     private static BlockPos lastCenter = BlockPos.ZERO;
 
-    private CropReadinessRenderer() {
+    private CropHelperRenderer() {
     }
 
     static void render(LevelRenderContext context) {
@@ -107,19 +107,19 @@ final class CropReadinessRenderer {
         if (state.getBlock() instanceof FarmlandBlock) {
             return state.getValue(FarmlandBlock.MOISTURE) == 0
                     && !level.getBlockState(pos.above()).is(BlockTags.MAINTAINS_FARMLAND)
-                    ? CropReadinessConfig.color(3) : 0;
+                    ? CropHelperConfig.color(3) : 0;
         }
         if (state.getBlock() instanceof SaplingBlock) {
-            return hasTreeRoom(level, pos) ? 0 : CropReadinessConfig.color(4);
+            return hasTreeRoom(level, pos) ? 0 : CropHelperConfig.color(4);
         }
         if (!isCrop(state)) return 0;
 
-        if (isMature(state)) return CropReadinessConfig.color(0);
-        if (tooDarkToGrow(level, pos, state)) return CropReadinessConfig.color(2);
+        if (isMature(state)) return CropHelperConfig.color(0);
+        if (tooDarkToGrow(level, pos, state)) return CropHelperConfig.color(2);
         BlockState below = level.getBlockState(pos.below());
         if (below.getBlock() instanceof FarmlandBlock
                 && below.getValue(FarmlandBlock.MOISTURE) == 0) {
-            return CropReadinessConfig.color(1);
+            return CropHelperConfig.color(1);
         }
         return 0;
     }
