@@ -57,7 +57,7 @@ final class CropHelperRenderer {
 
         Vec3 camera = context.levelState().cameraRenderState.pos;
         PoseStack poseStack = context.poseStack();
-        VertexConsumer lines = context.bufferSource().getBuffer(RenderTypes.linesTranslucent());
+        VertexConsumer lines = context.bufferSource().getBuffer(RenderTypes.lines());
         for (Mark mark : MARKS) {
             BlockState state = level.getBlockState(mark.pos);
             VoxelShape shape = state.getShape(level, mark.pos, CollisionContext.of(player));
