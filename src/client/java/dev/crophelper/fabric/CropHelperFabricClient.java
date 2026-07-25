@@ -20,7 +20,7 @@ public final class CropHelperFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         CropHelperConfig.load();
         LevelRenderEvents.BEFORE_BLOCK_OUTLINE.register(CropHelperRenderer::shouldRenderVanillaOutline);
-        LevelRenderEvents.AFTER_SOLID_FEATURES.register(CropHelperRenderer::render);
+        LevelRenderEvents.COLLECT_SUBMITS.register(CropHelperRenderer::render);
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (OPEN_CONFIG.consumeClick()) {
                 client.setScreenAndShow(new CropHelperConfigScreen(null));

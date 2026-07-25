@@ -66,7 +66,7 @@ final class CropHelperRenderer {
                     mark.pos.getZ() - camera.z
             );
             context.submitNodeCollector().submitShapeOutline(
-                    poseStack, shape, RenderTypes.linesTranslucent(), mark.color, 1.0F, false
+                    poseStack, shape, RenderTypes.lines(), mark.color, 1.0F, true
             );
             poseStack.popPose();
         }
