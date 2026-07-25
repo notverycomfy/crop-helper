@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.state.level.BlockOutlineRenderState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CocoaBlock;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmlandBlock;
@@ -22,7 +21,7 @@ import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.CollisionContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,11 +60,8 @@ final class CropHelperRenderer {
         VertexConsumer lines = context.bufferSource().getBuffer(RenderTypes.linesTranslucent());
         for (Mark mark : MARKS) {
             BlockState state = level.getBlockState(mark.pos);
-            VoxelShape shape = state.getShape(level, mark.pos);
-            if (shape.isEmpty()) {
-                shape = Block.box(1, 1, 1, 15, 15, 15);
-            }
-            shape = Shapes.create(shape.bounds().inflate(0.003));
+            VoxelShape shape = state.getShape(level, mark.pos, CollisionContext.of(player));
+            if (shape.isEmpty()) continue;
             ShapeRenderer.renderShape(
                     poseStack,
                     lines,
