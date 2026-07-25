@@ -30,14 +30,14 @@ No HUD. Client-side only. Outline colors are configurable in game.
 
 ## Versions
 
-The repository follows the same branch layout as Resonance:
+Each supported loader and Minecraft version has its own branch:
 
 | Minecraft | Loader | Branch |
 | --- | --- | --- |
 | 26.1.2 | NeoForge | `main` |
-| 26.1.2 | Fabric | [`codex/fabric-26.1.2`](https://github.com/notverycomfy/crop-helper/tree/codex/fabric-26.1.2) |
-| 26.2 | Fabric | [`codex/fabric-26.2`](https://github.com/notverycomfy/crop-helper/tree/codex/fabric-26.2) |
-| 26.2 | NeoForge | [`codex/neoforge-26.2`](https://github.com/notverycomfy/crop-helper/tree/codex/neoforge-26.2) |
+| 26.1.2 | Fabric | [`fabric-26.1.2`](https://github.com/notverycomfy/crop-helper/tree/fabric-26.1.2) |
+| 26.2 | Fabric | [`fabric-26.2`](https://github.com/notverycomfy/crop-helper/tree/fabric-26.2) |
+| 26.2 | NeoForge | [`neoforge-26.2`](https://github.com/notverycomfy/crop-helper/tree/neoforge-26.2) |
 
 Fabric builds require Fabric API. Mod Menu is optional and exposes the in-game color configuration screen.
 
