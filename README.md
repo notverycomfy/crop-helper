@@ -10,7 +10,6 @@ Subtle, configurable world outlines for mature crops and common growing problems
 
 [Download on Modrinth](https://modrinth.com/mod/crop-helper) · [Download on CurseForge](https://www.curseforge.com/minecraft/mc-mods/crop-helper) · [Report an issue](https://github.com/notverycomfy/crop-helper/issues)
 
-![Minecraft 26.1.2 and 26.2](https://img.shields.io/badge/Minecraft-26.1.2%20%7C%2026.2-62B47A)
 ![NeoForge and Fabric](https://img.shields.io/badge/Loaders-NeoForge%20%7C%20Fabric-E46A2C)
 ![All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-9B59B6)
 
