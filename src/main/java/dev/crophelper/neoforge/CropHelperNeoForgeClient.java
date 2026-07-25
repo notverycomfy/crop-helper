@@ -53,7 +53,7 @@ public final class CropHelperNeoForgeClient {
     }
 
     @SubscribeEvent
-    static void render(RenderLevelStageEvent.AfterOpaqueFeatures event) {
+    static void render(RenderLevelStageEvent.AfterTranslucentBlocks event) {
         Minecraft minecraft = Minecraft.getInstance();
         ClientLevel level = minecraft.level;
         LocalPlayer player = minecraft.player;
@@ -73,7 +73,7 @@ public final class CropHelperNeoForgeClient {
         Vec3 camera = event.getLevelRenderState().cameraRenderState.pos;
         PoseStack poseStack = event.getPoseStack();
         MultiBufferSource.BufferSource buffers = minecraft.renderBuffers().bufferSource();
-        VertexConsumer lines = buffers.getBuffer(RenderTypes.linesTranslucent());
+        VertexConsumer lines = buffers.getBuffer(RenderTypes.lines());
         for (Mark mark : MARKS) {
             BlockState state = level.getBlockState(mark.pos);
             VoxelShape shape = state.getShape(level, mark.pos, CollisionContext.of(player));
@@ -89,7 +89,7 @@ public final class CropHelperNeoForgeClient {
                     1.0F
             );
         }
-        buffers.endBatch(RenderTypes.linesTranslucent());
+        buffers.endBatch(RenderTypes.lines());
     }
 
     private static boolean holdingHoe(LocalPlayer player) {
