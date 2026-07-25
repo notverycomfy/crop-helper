@@ -15,9 +15,9 @@ GitHub may visually combine single-child folders such as `gradle/wrapper` or `sr
 ## Branches
 
 - `main`: NeoForge for Minecraft 26.1.2
-- `codex/neoforge-26.2`: NeoForge for Minecraft 26.2
-- `codex/fabric-26.1.2`: Fabric for Minecraft 26.1.2
-- `codex/fabric-26.2`: Fabric for Minecraft 26.2
+- `neoforge-26.2`: NeoForge for Minecraft 26.2
+- `fabric-26.1.2`: Fabric for Minecraft 26.1.2
+- `fabric-26.2`: Fabric for Minecraft 26.2
 
 Make a fix in the branch where it was found. Port the finished fix to the other applicable branches, adapting loader-specific APIs instead of copying code blindly.
 
